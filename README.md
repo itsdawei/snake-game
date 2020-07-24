@@ -6,6 +6,6 @@ Change direction with "wasd"
 ## Design
 
 ### Board
-simply a grid
+Empty square
 
 ### 
