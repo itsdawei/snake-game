@@ -3,9 +3,5 @@
 ## Controls
 Change direction with "wasd"
 
-## Design
+## Bugs
 
-### Board
-Empty square
-
-### 

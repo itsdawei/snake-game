@@ -43,19 +43,27 @@ class Board extends Component {
     switch (e.keyCode) {
       case 87:
       case 38:
-        this.setState({ direction: "UP" });
+        if (this.state.direction !== "DOWN") {
+          this.setState({ direction: "UP" });
+        }
         break;
       case 83:
       case 40:
-        this.setState({ direction: "DOWN" });
+        if (this.state.direction !== "UP") {
+          this.setState({ direction: "DOWN" });
+        }
         break;
       case 68:
       case 39:
-        this.setState({ direction: "RIGHT" });
+        if (this.state.direction !== "LEFT") {
+          this.setState({ direction: "RIGHT" });
+        }
         break;
       case 65:
       case 37:
-        this.setState({ direction: "LEFT" });
+        if(this.state.direction !== "RIGHT"){
+          this.setState({ direction: "LEFT" });
+        }
         break;
       default:
         console.log("useless key pressed");
@@ -119,6 +127,16 @@ class Board extends Component {
       this.growSnake();
       this.increaseSpeed();
     }
+  }
+
+  getRandomFood() {
+    let food = getRandomCoords();
+    let snake = [...this.state.snakeDots];
+    snake.forEach((dot) => {
+      if (food[0] === dot[0] && food[1] === dot[1]) {
+        food = getRandomCoords();
+      }
+    });
   }
 
   growSnake() {
