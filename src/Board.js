@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Snake from "./Snake";
 import Food from "./Food";
-import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
 
 const getRandomCoords = () => {
   let min = 1;
@@ -18,10 +16,9 @@ const initialState = {
   direction: "RIGHT",
   snakeDots: [
     [0, 0],
-    [0, 4],
-    [0, 2],
+    [2, 0],
+    [4, 0],
   ],
-  score: 0,
 };
 
 class Board extends Component {
@@ -61,7 +58,7 @@ class Board extends Component {
         break;
       case 65:
       case 37:
-        if(this.state.direction !== "RIGHT"){
+        if (this.state.direction !== "RIGHT") {
           this.setState({ direction: "LEFT" });
         }
         break;
@@ -99,7 +96,7 @@ class Board extends Component {
     });
   };
 
-  checkIfOutOfBounds = () => {
+  checkIfOutOfBounds() {
     let head = this.state.snakeDots[this.state.snakeDots.length - 1];
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
       this.onGameOver();
@@ -122,8 +119,8 @@ class Board extends Component {
     if (head[0] === food[0] && head[1] === food[1]) {
       this.setState({
         food: this.getRandomFood(),
-        score: this.state.score + 1,
       });
+      this.props.onScoreIncrement();
       this.growSnake();
       this.increaseSpeed();
     }
@@ -137,6 +134,7 @@ class Board extends Component {
         food = getRandomCoords();
       }
     });
+    return food;
   }
 
   growSnake() {
@@ -155,17 +153,21 @@ class Board extends Component {
     }
   }
 
-  onGameOver = () => {
-    alert(`Game Over. Snake length is ${this.state.snakeDots.length}`);
+  resetGameState() {
     this.setState(initialState);
+    this.setState({
+      food: this.getRandomFood(),
+    });
+  }
+
+  onGameOver = () => {
+    this.setState(initialState);
+    this.props.onScoreReset();
   };
 
   render() {
     return (
       <>
-        <Button variant="primary">
-          Score <Badge variant="light">{this.state.score}</Badge>
-        </Button>
         <div className="game-area">
           <Snake snakeDots={this.state.snakeDots} />
           <Food dot={this.state.food} />
