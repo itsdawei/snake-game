@@ -12,4 +12,6 @@ Change direction with "wasd"
 - higher food spawn rate
 - halting snakes
 - speed up snake
-- 
+#### visual
+- shop area: left of game board
+- game area: 

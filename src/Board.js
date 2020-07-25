@@ -161,18 +161,16 @@ class Board extends Component {
   }
 
   onGameOver = () => {
-    this.setState(initialState);
+    this.resetGameState();
     this.props.onScoreReset();
   };
 
   render() {
     return (
-      <>
-        <div className="game-area">
+        <div className="game-board">
           <Snake snakeDots={this.state.snakeDots} />
           <Food dot={this.state.food} />
         </div>
-      </>
     );
   }
 }
