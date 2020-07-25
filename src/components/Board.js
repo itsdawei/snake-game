@@ -177,7 +177,7 @@ class Board extends Component {
 
   render() {
     return (
-      <GameBoard>
+      <GameBoard className="board">
         <Snake snakeDots={this.state.snakeDots} />
         <Food dot={this.state.food} />
       </GameBoard>

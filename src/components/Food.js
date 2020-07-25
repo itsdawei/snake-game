@@ -16,6 +16,6 @@ const SnakeFood = styled.div.attrs((props) => ({
 
 export default class Food extends Component {
   render() {
-    return <SnakeFood dot={this.props.dot}></SnakeFood>;
+    return <SnakeFood className="food" dot={this.props.dot}></SnakeFood>;
   }
 }
