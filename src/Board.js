@@ -121,7 +121,7 @@ class Board extends Component {
     let food = this.state.food;
     if (head[0] === food[0] && head[1] === food[1]) {
       this.setState({
-        food: getRandomCoords(),
+        food: this.getRandomFood(),
         score: this.state.score + 1,
       });
       this.growSnake();
