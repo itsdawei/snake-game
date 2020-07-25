@@ -1,14 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import styled from "styled-components";
+
+const SnakeFood = styled.div.attrs((props) => ({
+  dot: props.dot,
+}))`
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: red;
+  border: 1px solid #fff;
+  z-index: 1;
+  left: ${(props) => props.dot[0]}%;
+  top: ${(props) => props.dot[1]}%;
+`;
 
 export default class Food extends Component {
-    render() {
-        const style = {
-            left: `${this.props.dot[0]}%`,
-            top: `${this.props.dot[1]}%`,
-        }
-
-        return (
-            <div className='snake-food' style={style}></div>
-        )
-    }
+  render() {
+    return <SnakeFood dot={this.props.dot}></SnakeFood>;
+  }
 }

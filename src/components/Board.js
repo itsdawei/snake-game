@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import Snake from "./Snake";
 import Food from "./Food";
+import styled from "styled-components";
+
+const GameBoard = styled.div`
+  position: relative;
+  margin: 50px auto;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  background-color: bisque;
+`;
 
 const getRandomCoords = () => {
   let min = 1;
@@ -101,7 +111,7 @@ class Board extends Component {
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
       this.onGameOver();
     }
-  };
+  }
 
   checkIfCollapsed() {
     let snake = [...this.state.snakeDots];
@@ -167,10 +177,10 @@ class Board extends Component {
 
   render() {
     return (
-        <div className="game-board">
-          <Snake snakeDots={this.state.snakeDots} />
-          <Food dot={this.state.food} />
-        </div>
+      <GameBoard>
+        <Snake snakeDots={this.state.snakeDots} />
+        <Food dot={this.state.food} />
+      </GameBoard>
     );
   }
 }

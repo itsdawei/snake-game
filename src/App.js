@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Board from "./components/Board";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
-import Badge from "react-bootstrap/Badge";
 import { Row, Col } from "react-bootstrap";
+import Shop from "./components/Shop";
 
 class App extends Component {
   constructor(props) {
@@ -28,14 +28,14 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Container fluid className="background">
+        <Container fluid style={{ backgroundColor: "teal"}}>
           <Row style={{ height: "100vh" }}>
             <Col className="shop-area">
-              <div className="total-food-overlay" />
-              <div className="total-food">
-                Food: <Badge variant="dark">{this.state.score}</Badge>
-              </div>
-              <div className="vl" style={{ right: "0", zIndex: "10" }} />
+              <Shop score={this.state.score} />
+              <div
+                className="vl"
+                style={{ right: "0", zIndex: "10", marginRight: "-2px" }}
+              />
             </Col>
             <Col xs={6} className="game-area">
               <Board
