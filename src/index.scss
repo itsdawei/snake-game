@@ -26,32 +26,37 @@ html {
   margin: 0px;
 }
 
-.shop-area {
-  position: relative;
-  float: left;
-  height: 100vh;
-  width: $divider1;
-}
+// .shop-area {
+//   position: relative;
+//   float: left;
+//   height: 100vh;
+//   width: $divider1;
+// }
 
-.game-area {
-  position: relative;
-  margin-top: 50px;
-  width: $gameAreaWidth;
-  height: 100vh;
-  float: left;
-}
+// .game-area {
+//   position: relative;
+//   margin-top: 50px;
+//   width: $gameAreaWidth;
+//   height: 100vh;
+//   float: left;
+// }
 
-.third-area {
-  position: relative;
-  float: left;
-  height: 100vh;
-  width: $divider1;
+// .third-area {
+//   position: relative;
+//   float: left;
+//   height: 100vh;
+//   width: $divider1;
+// }
+
+body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .game-board {
   position: relative;
   margin: 50px auto;
-  margin-top: 1px;
   width: $gameAreaWidth;
   height: 500px;
   border: 2px solid black;
@@ -89,7 +94,7 @@ html {
   left: 0;
   width: 100%;
   height: 24px;
-  background-color: green;
+  background-color: white;
   opacity: 0.5;
   z-index: 1;
 }
