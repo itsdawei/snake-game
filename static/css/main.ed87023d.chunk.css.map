@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA,YACI,SAAU,CAKb,eADG,QAKQ,CAJX,IAGG,SACQ","file":"main.ed87023d.chunk.css","sourcesContent":[".no-padding {\r\n    padding: 0;\r\n}\r\n\r\n.no-margin {\r\n    margin: 0;\r\n}\r\n\r\nCol {\r\n    padding:0;\r\n    margin:0;\r\n}"]}
