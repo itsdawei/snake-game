@@ -23,12 +23,12 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
-      upgrades: [
-        ["Max Food", 0],
-        ["u1", 0],
-        ["u2", 0],
-        ["u3", 0],
-      ],
+      upgrades: {
+        "Max Food": 0,
+        "u1": 0,
+        "u2": 0,
+        "u3": 0,
+      },
     };
   }
 
@@ -57,6 +57,7 @@ class App extends Component {
   };
 
   render() {
+    const {upgrades} = this.state;
     return (
       <React.Fragment>
         <Container fluid style={{ backgroundColor: "teal" }}>
@@ -65,7 +66,7 @@ class App extends Component {
               <Shop
                 score={this.state.score}
                 upgradeHandler={this.handleUpgrade}
-                upgrades={this.state.upgrades}
+                upgrades={upgrades}
               />
               <VerticalLine
                 style={{ right: "0", zIndex: "10", marginRight: "-2px" }}
@@ -75,6 +76,7 @@ class App extends Component {
               <Board
                 onScoreIncrement={this.incrementScore}
                 onScoreReset={this.resetScore}
+                upgrades={upgrades}
               />
             </StyledCol>
             <StyledCol className="third-area" id="no-padding">

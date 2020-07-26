@@ -13,14 +13,15 @@ const StyledDiv = styled.div`
 
 export class ShopScrollArea extends Component {
   state = {
-    upgradesList: this.props.upgrades.map((item) => item[0])
+    
   }
 
   render() {
     const btnVariant = "primary";
+    const upgrades = Object.keys(this.props.upgrades);
     return (
       <StyledDiv>
-      {this.state.upgradesList.map((name, i) => (
+      {upgrades.map((name, i) => (
         <StyledButton
           variant={btnVariant}
           block

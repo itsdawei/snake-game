@@ -21,7 +21,7 @@ const getRandomCoords = () => {
 };
 
 const initialState = {
-  food: getRandomCoords(),
+  foods: [getRandomCoords()],
   speed: 200,
   direction: "RIGHT",
   snakeDots: [
@@ -124,26 +124,32 @@ class Board extends Component {
 
   checkIfEat() {
     let head = this.state.snakeDots[this.state.snakeDots.length - 1];
-    let food = this.state.food;
-    if (head[0] === food[0] && head[1] === food[1]) {
-      this.setState({
-        food: this.getRandomFood(),
-      });
-      this.props.onScoreIncrement();
-      this.growSnake();
-      this.increaseSpeed();
+    let foods = this.state.foods;
+
+    for (let i = 0; i < foods.length; i++) {
+      let food = foods[i];
+      if (food[0] === head[0] && food[1] === head[1]) {
+        foods[i] = getRandomCoords();
+        console.log("ate");
+        this.setState({
+          foods: foods,
+        });
+        this.props.onScoreIncrement();
+        this.growSnake();
+        this.increaseSpeed();
+      }
     }
   }
 
   getRandomFood() {
-    let food = getRandomCoords();
+    let foods = getRandomCoords();
     let snake = [...this.state.snakeDots];
     snake.forEach((dot) => {
-      if (food[0] === dot[0] && food[1] === dot[1]) {
-        food = getRandomCoords();
+      if (foods[0] === dot[0] && foods[1] === dot[1]) {
+        foods = getRandomCoords();
       }
     });
-    return food;
+    return foods;
   }
 
   growSnake() {
@@ -164,8 +170,12 @@ class Board extends Component {
 
   resetGameState() {
     this.setState(initialState);
+    var foodArray = [];
+    for (let i = 0; i < this.props.maxFood; i++) {
+      foodArray.push(getRandomCoords());
+    }
     this.setState({
-      food: this.getRandomFood(),
+      foods: foodArray,
     });
   }
 
@@ -178,7 +188,7 @@ class Board extends Component {
     return (
       <GameBoard className="board">
         <Snake snakeDots={this.state.snakeDots} />
-        <Food dot={this.state.food} />
+        <Food dots={this.state.foods} />
       </GameBoard>
     );
   }
