@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1bfd80b690f548d658b2526bc65d16cf",
+    "revision": "a30c5be8d655f0bfc75d86fad1dcf041",
     "url": "/snake-game/index.html"
   },
   {
-    "revision": "3376b038684faa0dbfd8",
+    "revision": "0d6b3beee2c5503b013f",
     "url": "/snake-game/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "32837205f4643f1ad5e3",
+    "revision": "22e2d0ccded68e308506",
     "url": "/snake-game/static/css/main.ed87023d.chunk.css"
   },
   {
-    "revision": "3376b038684faa0dbfd8",
-    "url": "/snake-game/static/js/2.e09ceee5.chunk.js"
+    "revision": "0d6b3beee2c5503b013f",
+    "url": "/snake-game/static/js/2.159567f7.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/snake-game/static/js/2.e09ceee5.chunk.js.LICENSE.txt"
+    "url": "/snake-game/static/js/2.159567f7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "32837205f4643f1ad5e3",
-    "url": "/snake-game/static/js/main.711bf9fa.chunk.js"
+    "revision": "22e2d0ccded68e308506",
+    "url": "/snake-game/static/js/main.dd4d5df6.chunk.js"
   },
   {
     "revision": "18005e22df855f84fc12",

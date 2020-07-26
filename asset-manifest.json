@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/snake-game/static/css/main.ed87023d.chunk.css",
-    "main.js": "/snake-game/static/js/main.711bf9fa.chunk.js",
-    "main.js.map": "/snake-game/static/js/main.711bf9fa.chunk.js.map",
+    "main.js": "/snake-game/static/js/main.dd4d5df6.chunk.js",
+    "main.js.map": "/snake-game/static/js/main.dd4d5df6.chunk.js.map",
     "runtime-main.js": "/snake-game/static/js/runtime-main.f9e1bf59.js",
     "runtime-main.js.map": "/snake-game/static/js/runtime-main.f9e1bf59.js.map",
     "static/css/2.af3c1da9.chunk.css": "/snake-game/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.e09ceee5.chunk.js": "/snake-game/static/js/2.e09ceee5.chunk.js",
-    "static/js/2.e09ceee5.chunk.js.map": "/snake-game/static/js/2.e09ceee5.chunk.js.map",
+    "static/js/2.159567f7.chunk.js": "/snake-game/static/js/2.159567f7.chunk.js",
+    "static/js/2.159567f7.chunk.js.map": "/snake-game/static/js/2.159567f7.chunk.js.map",
     "index.html": "/snake-game/index.html",
-    "precache-manifest.a192093077912c8e8aabd591e00a5334.js": "/snake-game/precache-manifest.a192093077912c8e8aabd591e00a5334.js",
+    "precache-manifest.fd2a24e09b52f1da5c05c667a033b571.js": "/snake-game/precache-manifest.fd2a24e09b52f1da5c05c667a033b571.js",
     "service-worker.js": "/snake-game/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/snake-game/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.ed87023d.chunk.css.map": "/snake-game/static/css/main.ed87023d.chunk.css.map",
-    "static/js/2.e09ceee5.chunk.js.LICENSE.txt": "/snake-game/static/js/2.e09ceee5.chunk.js.LICENSE.txt"
+    "static/js/2.159567f7.chunk.js.LICENSE.txt": "/snake-game/static/js/2.159567f7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f9e1bf59.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.e09ceee5.chunk.js",
+    "static/js/2.159567f7.chunk.js",
     "static/css/main.ed87023d.chunk.css",
-    "static/js/main.711bf9fa.chunk.js"
+    "static/js/main.dd4d5df6.chunk.js"
   ]
 }
