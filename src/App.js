@@ -23,6 +23,8 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
+      u0: 0,
+      u1: 0,
     };
   }
 
@@ -38,13 +40,21 @@ class App extends Component {
     });
   };
 
+  handleUpgrade = (e) => {
+    let id = e.target.id;
+    console.log(id);
+  };
+
   render() {
     return (
       <React.Fragment>
         <Container fluid style={{ backgroundColor: "teal" }}>
           <Row style={{ height: "100vh" }}>
             <StyledCol className="shop-area">
-              <Shop score={this.state.score} />
+              <Shop
+                score={this.state.score}
+                upgradeHandler={this.handleUpgrade}
+              />
               <VerticalLine
                 style={{ right: "0", zIndex: "10", marginRight: "-2px" }}
               />

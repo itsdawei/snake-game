@@ -73,7 +73,6 @@ class Board extends Component {
         }
         break;
       default:
-        console.log("useless key pressed");
         break;
     }
   };

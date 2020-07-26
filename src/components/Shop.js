@@ -3,13 +3,12 @@ import Badge from "react-bootstrap/Badge";
 import styled from "styled-components";
 import ShopScrollArea from "./ShopScrollArea";
 
-
 const FoodCount = styled.div`
   position: relative;
   width: auto;
   height: auto;
   text-align: center;
-  z-index: 2;
+  z-index: 1;
 `;
 
 const FoodOverlay = styled.div`
@@ -20,22 +19,24 @@ const FoodOverlay = styled.div`
   height: 24px;
   background-color: white;
   opacity: 0.5;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export class Shop extends Component {
   render() {
-    
     return (
-      <React.Fragment className="shop">
+      <div className="shop">
         <div className="food-display-bar">
           <FoodOverlay />
           <FoodCount>
             Food: <Badge variant="dark">{this.props.score}</Badge>
           </FoodCount>
         </div>
-        <ShopScrollArea className="shop"/>
-      </React.Fragment>
+        <ShopScrollArea
+          className="shop"
+          onUpgrade={this.props.upgradeHandler}
+        />
+      </div>
     );
   }
 }

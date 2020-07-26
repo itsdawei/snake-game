@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
-const StyledButton = styled(Button)`
-  
-`;
+const StyledButton = styled(Button)``;
 
-const Container = styled.div`
+const StyledDiv = styled.div`
   flex: 1;
   background: teal;
   overflow-y: scroll;
@@ -14,23 +12,27 @@ const Container = styled.div`
 `;
 
 export class ShopScrollArea extends Component {
+  state = {
+    upgrades: ["u0", "u1", "u2", "u3"],
+  };
+
   render() {
     const btnVariant = "danger";
     return (
-      <Container>
-        <StyledButton variant={btnVariant} block size="lg">
-          upgrade 1
-        </StyledButton>
-        <StyledButton variant={btnVariant} block size="lg">
-          upgrade 2
-        </StyledButton>
-        <StyledButton variant={btnVariant} block size="lg">
-          upgrade 3
-        </StyledButton>
-        <StyledButton variant={btnVariant} block size="lg">
-          upgrade 4
-        </StyledButton>
-      </Container>
+      <StyledDiv>
+        {this.state.upgrades.map((name, i) => (
+          <StyledButton
+            variant={btnVariant}
+            block
+            size="lg"
+            key={i}
+            id={i}
+            onClick={this.props.onUpgrade}
+          >
+            {`Upgrade ${name}`}
+          </StyledButton>
+        ))}
+      </StyledDiv>
     );
   }
 }
