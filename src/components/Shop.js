@@ -34,6 +34,7 @@ export class Shop extends Component {
         </div>
         <ShopScrollArea
           className="shop"
+          upgrades={this.props.upgrades}
           onUpgrade={this.props.upgradeHandler}
         />
       </div>

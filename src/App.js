@@ -23,8 +23,12 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
-      u0: 0,
-      u1: 0,
+      upgrades: [
+        ["Food Amount", 0],
+        ["u1", 0],
+        ["u2", 0],
+        ["u3", 0],
+      ],
     };
   }
 
@@ -41,8 +45,15 @@ class App extends Component {
   };
 
   handleUpgrade = (e) => {
-    let id = e.target.id;
-    console.log(id);
+    let newUp = this.state.upgrades;
+    for (let u of newUp) {
+      if(e.target.getAttribute('name') === u[0]){
+        u[1] = u[1]+1;
+      }
+    }
+    this.setState({
+      upgrades: newUp
+    })
   };
 
   render() {
@@ -54,6 +65,7 @@ class App extends Component {
               <Shop
                 score={this.state.score}
                 upgradeHandler={this.handleUpgrade}
+                upgrades={this.state.upgrades}
               />
               <VerticalLine
                 style={{ right: "0", zIndex: "10", marginRight: "-2px" }}

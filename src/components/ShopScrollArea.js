@@ -13,25 +13,25 @@ const StyledDiv = styled.div`
 
 export class ShopScrollArea extends Component {
   state = {
-    upgrades: ["u0", "u1", "u2", "u3"],
-  };
+    upgradesList: this.props.upgrades.map((item) => item[0])
+  }
 
   render() {
-    const btnVariant = "danger";
+    const btnVariant = "primary";
     return (
       <StyledDiv>
-        {this.state.upgrades.map((name, i) => (
-          <StyledButton
-            variant={btnVariant}
-            block
-            size="lg"
-            key={i}
-            id={i}
-            onClick={this.props.onUpgrade}
-          >
-            {`Upgrade ${name}`}
-          </StyledButton>
-        ))}
+      {this.state.upgradesList.map((name, i) => (
+        <StyledButton
+          variant={btnVariant}
+          block
+          size="lg"
+          key={i}
+          name={name}
+          onClick={this.props.onUpgrade}
+        >
+          {`Upgrade ${name}`}
+        </StyledButton>
+      ))}
       </StyledDiv>
     );
   }
