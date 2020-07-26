@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       score: 0,
       upgrades: [
-        ["Food Amount", 0],
+        ["Max Food", 0],
         ["u1", 0],
         ["u2", 0],
         ["u3", 0],
