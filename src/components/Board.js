@@ -32,10 +32,14 @@ const initialState = {
 };
 
 class Board extends Component {
-  state = initialState;
+  state = { 
+    ...initialState, 
+    randomRate: 500,
+  };
 
   componentDidMount() {
     setInterval(this.moveSnake, this.state.speed);
+    setInterval(this.onRandomEvent, this.state.randomRate);
     document.onkeydown = this.onKeyDown;
   }
 
@@ -124,32 +128,41 @@ class Board extends Component {
 
   checkIfEat() {
     let head = this.state.snakeDots[this.state.snakeDots.length - 1];
-    let foods = this.state.foods;
+    let foodList = this.state.foods;
 
-    for (let i = 0; i < foods.length; i++) {
-      let food = foods[i];
-      if (food[0] === head[0] && food[1] === head[1]) {
-        foods[i] = getRandomCoords();
-        console.log("ate");
-        this.setState({
-          foods: foods,
-        });
-        this.props.onScoreIncrement();
-        this.growSnake();
-        this.increaseSpeed();
+    let index = -1;
+    for (let i = 0; i < foodList.length; i++) {
+      const element = foodList[i];
+      if (element[0] === head[0] && element[1] === head[1]) {
+        index = i;
       }
+    }
+
+    if (index > -1) {
+      foodList.splice(index, 1);
+
+      // essential
+      this.props.onScoreIncrement();
+      this.growSnake();
+      this.increaseSpeed();
     }
   }
 
-  getRandomFood() {
-    let foods = getRandomCoords();
-    let snake = [...this.state.snakeDots];
-    snake.forEach((dot) => {
-      if (foods[0] === dot[0] && foods[1] === dot[1]) {
-        foods = getRandomCoords();
+  getRandomCoords_Safe() {
+    let isValid = true;
+    while (isValid) {
+      let coords = getRandomCoords();
+      let snake = [...this.state.snakeDots];
+      snake.forEach((dot) => {
+        if (coords[0] === dot[0] && coords[1] === dot[1]) {
+          isValid = false;
+        }
+      });
+
+      if (isValid) {
+        return coords;
       }
-    });
-    return foods;
+    }
   }
 
   growSnake() {
@@ -170,18 +183,28 @@ class Board extends Component {
 
   resetGameState() {
     this.setState(initialState);
-    var foodArray = [];
-    for (let i = 0; i < this.props.maxFood; i++) {
-      foodArray.push(getRandomCoords());
-    }
-    this.setState({
-      foods: foodArray,
-    });
   }
 
   onGameOver = () => {
     this.resetGameState();
     this.props.onScoreReset();
+  };
+
+  onRandomEvent = () => {
+    let rand = Math.random();
+    if (rand < 0.1) {
+      this.onFoodGen();
+    }
+  };
+
+  onFoodGen = () => {
+    var foodArray = [...this.state.foods];
+    if (foodArray.length < this.props.upgrades["Max Food"]) {
+      foodArray.push(this.getRandomCoords_Safe());
+    }
+    this.setState({
+      foods: foodArray,
+    });
   };
 
   render() {

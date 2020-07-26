@@ -10,7 +10,7 @@ const SnakeFood = styled.div`
   z-index: 1;
 `;
 
-export default function Food(props) {
+export function Food(props) {
     return (
       <div className="foods">
       {props.dots.map((dot, i) => {
@@ -23,3 +23,5 @@ export default function Food(props) {
     </div>
     )
 }
+
+export default Food;

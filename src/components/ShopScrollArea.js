@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
@@ -11,16 +11,11 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-export class ShopScrollArea extends Component {
-  state = {
-    
-  }
-
-  render() {
-    const btnVariant = "primary";
-    const upgrades = Object.keys(this.props.upgrades);
-    return (
-      <StyledDiv>
+export function ShopScrollArea(props) {
+  const btnVariant = "primary";
+  const upgrades = Object.keys(props.upgrades);
+  return (
+    <StyledDiv>
       {upgrades.map((name, i) => (
         <StyledButton
           variant={btnVariant}
@@ -28,14 +23,13 @@ export class ShopScrollArea extends Component {
           size="lg"
           key={i}
           name={name}
-          onClick={this.props.onUpgrade}
+          onClick={props.onUpgrade}
         >
           {`Upgrade ${name}`}
         </StyledButton>
       ))}
-      </StyledDiv>
-    );
-  }
+    </StyledDiv>
+  );
 }
 
 export default ShopScrollArea;
