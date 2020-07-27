@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
+import Badge from "react-bootstrap/Badge";
 
-const StyledButton = styled(Button)``;
+const StyledButton = styled(Button)`
+`;
 
 const StyledDiv = styled.div`
   flex: 1;
@@ -11,21 +13,24 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
+const btnVariant = "primary";
+const badgeVariant = "dark";
+
 export function ShopScrollArea(props) {
-  const btnVariant = "primary";
-  const upgrades = Object.keys(props.upgrades);
+  const upgrades = Object.entries(props.upgrades);  
   return (
     <StyledDiv>
-      {upgrades.map((name, i) => (
+      {upgrades.map((upgrade, i) => (
         <StyledButton
           variant={btnVariant}
           block
           size="lg"
           key={i}
-          name={name}
+          name={upgrade[0]}
           onClick={props.onUpgrade}
         >
-          {`Upgrade ${name}`}
+          {`Upgrade ${upgrade[0]}  `}
+          <Badge variant={badgeVariant}>{upgrade[1]}</Badge>
         </StyledButton>
       ))}
     </StyledDiv>

@@ -149,10 +149,10 @@ class Board extends Component {
   }
 
   getRandomCoords_Safe() {
-    let isValid = true;
-    while (isValid) {
+    while (true) {
       let coords = getRandomCoords();
       let snake = [...this.state.snakeDots];
+      let isValid = true;
       snake.forEach((dot) => {
         if (coords[0] === dot[0] && coords[1] === dot[1]) {
           isValid = false;
@@ -197,13 +197,19 @@ class Board extends Component {
   };
 
   onFoodGen = () => {
-    var foodArray = [...this.state.foods];
-    if (foodArray.length < this.props.upgrades["Max Food"]) {
-      foodArray.push(this.getRandomCoords_Safe());
+    // var foodArray = [...this.state.foods];
+    // if (foodArray.length < this.props.upgrades["Max Food"]) {
+    //   foodArray.push(this.getRandomCoords_Safe());
+    // }
+    // this.setState({
+    //   foods: foodArray,
+    // });
+
+    if(this.state.foods.length < this.props.upgrades["Max Food"]){
+      this.setState({
+        foods: [...this.state.foods, this.getRandomCoords_Safe()],
+      });
     }
-    this.setState({
-      foods: foodArray,
-    });
   };
 
   render() {

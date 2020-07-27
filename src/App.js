@@ -45,14 +45,13 @@ class App extends Component {
   };
 
   handleUpgrade = (e) => {
-    let newUp = this.state.upgrades;
-    for (let u of newUp) {
-      if (e.target.getAttribute("name") === u[0]) {
-        u[1] = u[1] + 1;
-      }
-    }
+    let name = e.currentTarget.getAttribute("name");
+    let { upgrades: newUpgrades } = { ...this.state };
+    newUpgrades[name] = newUpgrades[name] + 1;
+    console.log(newUpgrades);
+
     this.setState({
-      upgrades: newUp,
+      upgrades: newUpgrades,
     });
   };
 
