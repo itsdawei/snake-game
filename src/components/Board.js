@@ -32,8 +32,8 @@ const initialState = {
 };
 
 class Board extends Component {
-  state = { 
-    ...initialState, 
+  state = {
+    ...initialState,
     randomRate: 500,
   };
 
@@ -187,7 +187,6 @@ class Board extends Component {
 
   onGameOver = () => {
     this.resetGameState();
-    this.props.onScoreReset();
   };
 
   onRandomEvent = () => {

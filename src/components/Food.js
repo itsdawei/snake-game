@@ -11,17 +11,17 @@ const SnakeFood = styled.div`
 `;
 
 export function Food(props) {
-    return (
-      <div className="foods">
+  return (
+    <div className="foods">
       {props.dots.map((dot, i) => {
         const style = {
           left: `${dot[0]}%`,
           top: `${dot[1]}%`,
         };
-        return <SnakeFood className= "food" key={i} style={style}></SnakeFood>;
+        return <SnakeFood className="food" key={i} style={style}></SnakeFood>;
       })}
     </div>
-    )
+  );
 }
 
 export default Food;

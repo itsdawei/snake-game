@@ -25,9 +25,9 @@ class App extends Component {
       score: 0,
       upgrades: {
         "Max Food": 2,
-        "u1": 0,
-        "u2": 0,
-        "u3": 0,
+        u1: 0,
+        u2: 0,
+        u3: 0,
       },
     };
   }
@@ -47,17 +47,17 @@ class App extends Component {
   handleUpgrade = (e) => {
     let newUp = this.state.upgrades;
     for (let u of newUp) {
-      if(e.target.getAttribute('name') === u[0]){
-        u[1] = u[1]+1;
+      if (e.target.getAttribute("name") === u[0]) {
+        u[1] = u[1] + 1;
       }
     }
     this.setState({
-      upgrades: newUp
-    })
+      upgrades: newUp,
+    });
   };
 
   render() {
-    const {upgrades} = this.state;
+    const { upgrades } = this.state;
     return (
       <React.Fragment>
         <Container fluid style={{ backgroundColor: "teal" }}>
